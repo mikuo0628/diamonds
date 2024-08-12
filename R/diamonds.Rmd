@@ -1,0 +1,28 @@
+---
+title: "Diamonds"
+author: "Michael Kuo"
+date: "2024-08-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+diamonds %>% 
+  ggplot() +
+  geom_point(
+    aes(
+      x = carat,
+      y = price,
+      color = clarity
+    ),
+    alpha = 0.7
+  ) +
+  facet_grid(. ~ cut) +
+  theme_bw()
+```
+
